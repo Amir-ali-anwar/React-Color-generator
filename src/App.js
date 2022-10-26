@@ -3,11 +3,12 @@ import SingleColor from "./SingleColor";
 
 import Values from "values.js";
 
+
 function App() {
-  const [color, Setcolor] = useState("#f15025");
+  const [color, Setcolor] = useState('');
   const [error, Seterror] = useState(false);
-  const [list, Setlist] = useState([]);
-  console.log(list);
+  const [list, Setlist] = useState(new Values("#f15025").all(10));
+  console.log(color);
   const handleChange = (e) => {
     let colors = e.target.value;
     Setcolor(colors);
@@ -26,14 +27,20 @@ function App() {
       <section className="container">
         <h3>color generator</h3>
         <form onSubmit={submitHandler}>
-          <input type="text" value={color} onChange={handleChange} />
+          <input
+            className={`${error ? "error" : null}`}
+            type="text"
+            value={color}
+            onChange={handleChange}
+            placeholder="#f15025"
+          />
           <button type="submit" className="btn">
             submit
           </button>
         </form>
       </section>
       <section className="colors">
-        {list?.map((colors,index) => {
+        {list?.map((colors, index) => {
           return <SingleColor key={index} {...colors} />;
         })}
       </section>
