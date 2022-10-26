@@ -7,6 +7,7 @@ const SingleColor = ({ rgb, weight, hex }) => {
   const rbaColor = rgb.join(",");
   const hexa = rgbToHex(...rgb);
   const clickHandler = () => {
+    navigator.clipboard.writeText(hexa);
     SetAlert(true);
   };
   useEffect(() => {
@@ -24,6 +25,7 @@ const SingleColor = ({ rgb, weight, hex }) => {
     >
       <p className="color-value">{hexa}</p>
       <p className="percent-value">{weight}%</p>
+      {alert && <p className="alert">copied to clipboard</p>}
     </article>
   );
 };
