@@ -8,7 +8,6 @@ function App() {
   const [color, Setcolor] = useState('');
   const [error, Seterror] = useState(false);
   const [list, Setlist] = useState(new Values("#f15025").all(10));
-  console.log(color);
   const handleChange = (e) => {
     let colors = e.target.value;
     Setcolor(colors);

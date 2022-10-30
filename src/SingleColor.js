@@ -3,7 +3,6 @@ import rgbToHex from "./utils";
 
 const SingleColor = ({ rgb, weight, hex }) => {
   const [alert, SetAlert] = useState(false);
-  console.log(alert);
   const rbaColor = rgb.join(",");
   const hexa = rgbToHex(...rgb);
   const clickHandler = () => {
